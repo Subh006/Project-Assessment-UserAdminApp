@@ -1,0 +1,22 @@
+<div ng-controller="adminController" class="homeDiv">
+    <nav class="navbar navbar-expand-lg adnav">
+        <div class="navDiv">
+            <h6><a href="#" style="text-decoration: none; color: white;" ng-click="profile()">{{data}}({{role}})</a></h6>
+            <a class="logout" href="#" ng-click="navigateView('views/auth/intro/intro.html')">
+                Logout
+            </a>
+        </div>
+    </nav>
+    <h1>Welcome to Admin portal</h1>
+    <hr />
+    <div class="optDiv">
+        <h4><a href="#" class="alink" ng-click="navigate('views/admin/getDetail/getDetail.html')">Get details</a>
+        &nbsp;&nbsp; | &nbsp;&nbsp;
+        <a href="#" class="alink" ng-click="navigate('views/admin/addDetail/addDetail.html')">Add details</a></h4>
+    </div>
+    <hr />
+
+    <div ng-include="partial" ></div>
+
+    <div></div>
+</div>

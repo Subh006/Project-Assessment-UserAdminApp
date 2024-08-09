@@ -1,0 +1,40 @@
+<div ng-controller="userController">
+    <nav class="navbar navbar-expand-lg adnav">
+        <div class="navDiv">
+            <h6><a href="#" style="text-decoration: none; color: white;" ng-click="profile()">{{data}}({{role}})</a></h6>
+            <a class="logout" href="#" ng-click="navigateView('views/auth/intro/intro.html')">
+                Logout
+            </a>
+        </div>
+    </nav>
+   
+    <div class="homeDiv">
+        <h1>Welcome to User portal</h1>
+        <hr />
+    <h2>User Details</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>User Name</th>
+                <th>User Email</th>
+                <th>User Contact</th>
+                <th>User Address</th>
+                <th>User Role</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="usr in users">
+                <td>{{usr.uid}}</td>
+                <td>{{usr.name}}</td>
+                <td>{{usr.email}}</td>
+                <td>{{usr.contact}}</td>
+                <td>{{usr.address}}</td>
+                <td>{{usr.role}}</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+</div>

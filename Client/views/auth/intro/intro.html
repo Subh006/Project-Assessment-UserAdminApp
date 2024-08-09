@@ -1,0 +1,44 @@
+<div ng-controller="introController" class="introDiv">
+    <nav class="navbar navbar-expand-lg mnav">
+
+        <h1> Welcome to User-Admin App</h1>
+
+    </nav>
+
+    <div class="contentDiv">
+        <div class="lDiv">
+            <h3> This is a demo page for Project Assessment.</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod consequuntur beatae eius animi,
+                necessitatibus quibusdam impedit velit odio non? Harum, rem, corporis voluptatem consequatur ad quae
+                ullam vero eligendi ab excepturi saepe ipsum voluptate enim eius, doloribus maxime quod veniam quisquam
+                earum vel ex dolore. Officia libero iusto qui deserunt quam ex consequuntur ad voluptates, assumenda
+                nulla adipisci molestiae non ea nisi tempora atque modi est unde vero laborum cupiditate! Odit,
+                reprehenderit. Beatae incidunt dolores dolor iusto ad consectetur nostrum neque itaque assumenda
+                aperiam, similique minus quis excepturi earum pariatur. Voluptatum tenetur magni fugit quae consectetur
+                voluptatem, optio repellat id.</p>
+        </div>
+
+        <div class="rDiv">
+            <div ng-hide="show">
+                <button class="btn btn-primary" ng-click="showLogin()">
+                    <h3>Login/Sign-Up</h3>
+                </button>
+            </div>
+            <div class="loginDiv" ng-show="show">
+                <form name="loginForm" class="loginForm" ng-submit="loginForm.$valid &&  authenticateUser()" novalidate>
+                    <input type="email" ng-pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com)$" name="email" class="form-control form-control-sm" id="email" placeholder="Enter Your Email" ng-model="user.email"
+                        required><br>
+                    <input type="password" name="password"  ng-minlength="6" ng-pattern="/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,}$/" class="form-control form-control-sm" id="password" placeholder="Enter password"
+                        ng-model="user.password" required><br>
+                    <button class="btn btn-success" type="submit">Login</button>
+                    <p>Form Valid? {{loginForm.$valid}}</p>
+                </form>
+                <h4>{{message}}</h4>
+                <button class="btn btn-primary" ng-click="navigateView('views/auth/signUp/signUp.html')">Sign-Up</button>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>

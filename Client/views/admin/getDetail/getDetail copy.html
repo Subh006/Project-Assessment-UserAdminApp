@@ -1,0 +1,111 @@
+<div ng-controller="getDetailController" class="tempDiv">
+    <h1>User Details</h1>
+
+    <table class="table tbl">
+        <thead>
+            <tr class="tbl">
+                <th>Id</th>
+                <th>User Name</th>
+                <th>User Email</th>
+                <th>User Contact</th>
+                <th>User Address</th>
+                <th>User Role</th>
+                <th></th>
+                <th></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="usr in users">
+                <td>{{usr.uid}}</td>
+                <td>{{usr.name}}</td>
+                <td>{{usr.email}}</td>
+                <td>{{usr.contact}}</td>
+                <td>{{usr.address}}</td>
+                <td>{{usr.role}}</td>
+                <td><button class="btn btn-primary" ng-click="toggleEditShow(); setUser(usr)">Edit</button>
+                </td>
+                <td>
+                    <button class="btn btn-danger" ng-click="toggleDeleteShow(); setUser(usr)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <div ng-show="visibilityEdit" class="formDiv">
+        <h1>Edit User</h1>
+
+        <form name="editForm" class="edForm" ng-submit="editForm.$valid && editUser()" novalidate>
+
+            <label for="id">ID:-</label>
+            <input type="text" class="form-control form-control-sm" ng-model="usrData.uid" id="id" readonly><br>
+
+            <label for="name">User Name:-</label>
+            <input type="text" class="form-control form-control-sm" ng-model="usrData.name" id="name" required><br>
+
+            <label for="email">User Email:-</label>
+            <input type="email" ng-pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com)$" class="form-control form-control-sm" ng-model="usrData.email" id="email" required><br>
+
+            <label for="password">User Password:-</label>
+            <input type="password" ng-minlength="6" ng-pattern="/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/" class="form-control form-control-sm" ng-model="usrData.password" id="password" required><br>
+
+            <label for="contact">User Contact:-</label>
+            <input type="tel" class="form-control form-control-sm" ng-model="usrData.contact" id="contact" required><br>
+
+            <label for="address">User Address:-</label>
+            <textarea class="form-control form-control-sm" ng-model="usrData.address" id="address" required></textarea><br>
+
+            <label for="role">User Role:-</label>
+            <input type="radio" class="form-check-input" id="user" name="role" ng-model="usrData.role" value="user">
+            <label for="user">User</label>&nbsp; 
+            <input type="radio" class="form-check-input" id="admin" name="role" ng-model="usrData.role" value="admin">
+            <label for="admin">Admin</label><br>
+
+            <button class="btn btn-primary" type="submit">Save</button><br>
+            <p>Form Valid? {{editForm.$valid}} </p>
+
+
+        </form>
+        <button class="btn btn-danger" ng-click="toggleEditHide()">Close</button><br>
+
+    </div>
+
+    <div ng-show="visibilityDelete" class="formDiv">
+        <h1>Delete User</h1>
+
+        <form name="editForm" class="edForm" ng-submit="deleteUser()" novalidate>
+
+            <label for="id">ID:-</label>
+            <input type="text" class="form-control form-control-sm" ng-model="usrData.uid" id="id" readonly><br>
+
+            <label for="name">User Name:-</label>
+            <input type="text" class="form-control form-control-sm" ng-model="usrData.name" id="name" readonly><br>
+
+            <label for="email">User Email:-</label>
+            <input type="email"class="form-control form-control-sm"  ng-model="usrData.email" id="email" readonly><br>
+
+            <label for="password">User Password:-</label>
+            <input type="password"class="form-control form-control-sm"  ng-model="usrData.password" id="password" readonly><br>
+
+            <label for="contact">User Contact:-</label>
+            <input type="text" class="form-control form-control-sm" ng-model="usrData.contact" id="contact" readonly><br>
+
+            <label for="address">User Address:-</label>
+            <textarea class="form-control form-control-sm" ng-model="usrData.address" id="address" readonly></textarea><br>
+
+            <label for="role">User Role:-</label>
+            <input type="text" class="form-control form-control-sm" ng-model="usrData.role" id="role" readonly><br>
+
+            <button class="btn btn-primary" type="submit">Delete</button><br>
+
+
+
+        </form>
+        <button class="btn btn-danger" ng-click="toggleDeleteHide()">Close</button><br>
+
+    </div>
+
+
+
+</div>
